@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<!-- You can add your own custom CSS file here -->
+	<style>
+		body {
+			background-image: url('https://techcrunch.com/wp-content/uploads/2020/08/GettyImages-875074116.jpg');
+			/* Replace with your image URL */
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			color: #ebe6e6;
+			/* Set text color to white for better readability */
+		}
+
+		.container {
+			background-color: rgba(0, 0, 0, 0.8);
+			/* Semi-transparent black background for container */
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			max-width: 400px;
+			margin: auto;
+			margin-top: 50px;
+		}
+
+		.form-group label {
+			font-weight: bold;
+		}
+
+		.btn-primary {
+			background-color: #007bff;
+			border-color: #007bff;
+		}
+
+		.btn-primary:hover {
+			background-color: #0056b3;
+			border-color: #0056b3;
+		}
+
+		.bottom {
+			font-size: 14px;
+		}
+
+		/* Custom styles for Stock Exchange heading */
+		.stock-exchange {
+			font-family: 'Arial', sans-serif;
+			color: #28a745;
+			/* Green color */
+			font-size: 28px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<!-- Stock Exchange Heading -->
+		<h1 class="text-center stock-exchange">Stock Exchange</h1>
+
+		<!-- User Registration -->
+		<h2 class="text-center mb-4">User Registration </h2>
+		<form action="{{ url_for('register') }}" method="post">
+			{% if message is defined and message %}
+			<div class="alert alert-warning">{{ message }}</div>
+			{% endif %}
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Enter name" name="name">
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Register</button>
+			<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Login here</a></p>
+		</form>
+	</div>
+
+
+</body>
+
+</html>
